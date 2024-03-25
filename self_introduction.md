@@ -19,7 +19,7 @@
   <li>Share how Python helps automation and data processing</li>
   <br>
   🎲 Fun facts: <br>
-  <li>I can write simple danmaku patterns in Touhou Danmakufu</li>
+  <li>I can write danmaku patterns in Touhou Danmakufu</li>
   <li>I love 🐈</li>
   <li>I started learning MySQL by asking a question: "Why the code look so similar to Google Sheet's QUERY formula param?"</li>
 </p>
