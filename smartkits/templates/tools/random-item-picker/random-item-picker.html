@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Random Item Picker-->
+<!-- Select total number of questions, number of selected items-->
+<section class="page-section bg-white mb-0" id="random-item-picker">
+    <div class="container">
+        <p class="lead mb-0">Start picking random items with the following criteria.
+        </p>
+        <br />
+        <!-- Number Pickers-->
+
+        <form action="/random-item-picker/results" method="POST">
+            <div class="row g-3">
+                <div class="col-12">
+                    <label for="maxValue" class="form-label">Total number of questions (2 to 100):</label>
+                    <div id="maxValueNumber"></div>
+                    <input type="range" class="form-range" min="2" max="100" step="1" id="maxValue" name="maxValue">
+                </div>
+            </div>
+            <br />
+
+            <div class="row g-3">
+                <div class="col-12">
+                    <label for="sampleSize" class="form-label">Number of items to be drawn:</label>
+                    <div id="sampleSizeNumber"></div>
+                    <input type="range" class="form-range" min="1" max="99" step="1" id="sampleSize" name="sampleSize">
+                </div>
+            </div>
+            <br />
+
+            <div class="row g-3">
+                <div class="col-sm-3">
+                    <a class="btn btn-xl btn-outline-secondary" onclick="reset()">Reset picker</a>
+                </div>
+                <div class="col-sm-3">
+                    <button class="btn btn-xl btn-outline-primary" type="submit">Submit</button>
+                </div>
+            </div>
+            <br />
+        </form>
+    </div>
+</section>
+
+<!-- Background music player -->
+<audio controls autoplay loop>
+    <source src="{{url_for('static', filename='audio/bgm/marksix.mp3')}}" type="audio/mpeg">
+</audio>
+{% endblock %}
+
+{% block script %}
+<!-- Filter JS-->
+{% include "/structures/scripts/script-scrollbar.html" %}
+{% include "/structures/scripts/script-reset.html" %}
+{% endblock %}

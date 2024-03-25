@@ -1,0 +1,54 @@
+<section class="page-section portfolio" id="features">
+    <div class="container">
+        <!-- Features Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Start with what you need</h2>
+        <!-- Icon Divider-->
+        {% include "/structures/divider.html" %}
+        <!-- Features Grid Items-->
+        <div class="row justify-content-center">
+            <!-- Features Item 1-->
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class="portfolio-item mx-auto" data-bs-toggle="modal"
+                    data-bs-target="#features-random-item-picker">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white">Random Item Picker</div>
+                    </div>
+                    <img class="img-fluid" src="{{url_for('static', filename='img/features/random-item-picker.png')}}"
+                        alt="Random Item Picker" />
+                </div>
+            </div>
+            <!-- Features Item 2-->
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#features-quizzes">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white">Quizzes</div>
+                    </div>
+                    <img class="img-fluid" src="{{url_for('static', filename='img/features/quiz.png')}}"
+                        alt="Quizzes" />
+                </div>
+            </div>
+            <!-- Features Item 3-->
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#features-ig-story-vocabulary-book">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white">IG Story Vocabulary Book
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="{{url_for('static', filename='img/features/vocabulary-book.png')}}"
+                        alt="IG Story Vocabulary Book" />
+                </div>
+            </div>
+            <!-- Features Item 4-->
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#features-question-keyword-dictionary">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white">Question Keyword Dictionary
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="{{url_for('static', filename='img/features/question-keyword-dictionary.png')}}"
+                        alt="Question Keyword Dictionary" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

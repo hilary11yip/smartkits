@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Drawn question numbers -->
+    <div class="container mx-auto justify-content-flex-start">
+        {% for result in results %}
+        <span class="ball">{{ result }}</span>
+        {% endfor %}
+    </div>
+    <br/>
+    <div class="container mx-auto justify-content-center">
+        <a class="btn btn-xl btn-outline-secondary" href="/random-item-picker">Draw numbers again</a>
+    </div>
+
+    <!-- Sound effect player -->
+    <audio controls autoplay>
+        <source src="{{ url_for('static', filename='audio/se/tada.mp3') }}" type="audio/mpeg">
+    </audio>
+
+{% endblock %}

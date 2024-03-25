@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- IG story component -->
+<section class="page-section bg-white mb-0" id="ig-story-vocabulary-book">
+    <div class="container mx-auto d-flex align-items-center flex-row">
+        <div class="container d-flex align-items-center flex-column">
+            <p class="lead mb-0">Read the picture below and write as many related English vocabulary as possible.
+            </p>
+            <br />
+            <p class="lead mb-0">Similar with IG hashtags:
+            </p>
+            <ul>
+                <li>Remember to add "#" in front of every vocabulary</li>
+                <li>If you want to write phrases (e.g. look up), use "_" as space</li>
+            </ul>
+        </div>
+    </div>
+
+    <form action="/ig-story-vocabulary-book/analysis-results" method="POST">
+        <div class="container mx-auto d-flex align-items-center flex-column">
+            <div class="container d-flex align-items-center flex-row">
+                <img src="{{ url_for('static', filename='img/background/ig-header.svg') }}" alt="" width="100%"
+                    height="auto" />
+            </div>
+            <div class="container mx-auto d-flex align-items-center flex-row">
+                <img src="{{ url_for('static', filename=result) }}" alt="" width="auto" height="600px" />
+            </div>
+            <br />
+
+            <div class="container mx-auto d-flex align-items-center flex-row">
+                <textarea class="form-control" placeholder="#keyword1 #keyword2..." id="keywordInput" name="keywordInput"></textarea>
+                <input class="form-control" type="text" id="selectedPictureId" name="selectedPictureId" hidden="true" value="{{ selectedPictureId }}">
+                <input class="form-control" type="text" id="quizId" name="quizId" hidden="true" value="{{ quizId }}">
+            </div>
+            <br />
+            <div class="container mx-auto d-flex align-items-center flex-row">
+                <a class="btn btn-xl btn-outline-secondary" onclick="reset()">Pick another picture</a>
+            </div>
+            <br />
+            <div class="container mx-auto d-flex align-items-center flex-row">
+                <button class="btn btn-xl btn-outline-primary" type="submit">Check my English ability</button>
+            </div>
+        </div>
+    </form>
+</section>
+
+<!-- Background music player -->
+<audio controls autoplay loop>
+    <source src="{{url_for('static', filename='audio/bgm/chill.mp3')}}" type="audio/mpeg">
+</audio>
+
+
+{% endblock %}
+
+{% block script %}
+{% include "/structures/scripts/script-reset.html" %}
+{% endblock %}

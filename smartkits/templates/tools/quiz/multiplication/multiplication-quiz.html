@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-section bg-white mb-0" id="multiplication-quiz">
+    <div class="container">
+        <p class="lead mb-0">Start doing 5 random multiplication quizzes <strong>(1 to 9 multiplications, e.g. 2 X
+                8)</strong>.
+        </p>
+        <br />
+        <div class="container mx-auto d-flex align-items-center flex-row">
+            <form action="/multiplication-quiz/results" method="POST">
+                <table id="multiplication-quiz-questions" class="table-striped table xl">
+                    <thead>
+                        <tr>
+                            <th>Questions</th>
+                            <th>Answers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <input class="form-control" hidden="true" id="quizId" name="quizId" value="{{ quizId }}">
+
+                        {% for question, answer in combinedData %}
+                        <tr>
+                            <td>{{ question }}</td>
+                            <td>
+                                <input class="form-control" type="number" id="answerInput" name="answerInput" step="1" pattern="\d+" required>
+                                <input class="form-control" hidden="true" id="question" name="question" value="{{ question }}">
+                                <input class="form-control" hidden="true" type="number" id="correctAns" name="correctAns" value="{{ answer }}">
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+        </div>
+        <div class="container mx-auto d-flex align-items-center flex-row">
+            <a class="btn btn-xl btn-outline-secondary" onclick="reset()">Reset questions</a>
+        </div>
+        <br />
+        <div class="container mx-auto d-flex align-items-center flex-row">
+            <button class="btn btn-xl btn-outline-primary" type="submit">Submit</button>
+        </div>
+    </div>
+</section>
+
+<!-- Background music player -->
+<audio controls autoplay loop>
+    <source src="{{url_for('static', filename='audio/bgm/chill.mp3')}}" type="audio/mpeg">
+</audio>
+
+{% endblock %}
+
+{% block script %}
+{% include "/structures/scripts/script-reset.html" %}
+{% endblock %}

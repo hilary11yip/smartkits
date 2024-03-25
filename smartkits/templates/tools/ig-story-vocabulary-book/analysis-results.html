@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-section bg-white mb-0">
+    <div class="container mx-auto d-flex align-items-center flex-row">
+        <table id="ig-analysis-results" class="table-striped table xl">
+            <thead>
+                <tr>
+                    <th>Words</th>
+                    <th>Part of Speech</th>
+                    <th>Meaning</th>
+                    <th>CEFR Level</th>
+                    <th>Related Words</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tag, speech, meaning, level, related in combinedData %}
+                <tr>
+                    <td>{{ tag }}</td>
+                    <td>{{ speech }}</td>
+                    <td>{{ meaning }}</td>
+                    <td>{{ level }}</td>
+                    <td>{% for item in related %}
+                        <ul>
+                            <li>{{ item }}</li>
+                        </ul>
+                        {% endfor %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="container mx-auto d-flex align-items-center flex-row">
+        <a class="btn btn-xl btn-outline-secondary" href="/ig-story-vocabulary-book">Write hashtags for another
+            picture</a>
+    </div>
+</section>
+
+
+<!-- Sound effect player -->
+<audio controls autoplay>
+    <source src="{{ url_for('static', filename='audio/se/drum.mp3') }}" type="audio/mpeg">
+</audio>
+
+{% endblock %}

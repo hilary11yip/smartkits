@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Multiplication test results -->
+<section class="page-section bg-white mb-0" id="multiplication-quiz-results">
+
+    <div class="container mx-auto d-flex align-items-center flex-row">
+        <table id="multiplication-quiz-results" class="table-striped table xl">
+            <thead>
+                <tr>
+                    <th>Questions</th>
+                    <th>Answers</th>
+                    <th>Correct?</th>
+                    <th>Correct Answers</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for question, answer, goodAns in combinedData %}
+                <tr>
+                    <td>{{ question }}</td>
+                    <td>{{ answer }}</td>
+                    {% if answer == goodAns %}
+                    <td>
+                        <i class="fa-solid fa-check"></i>
+                    </td>
+                    {% else %}
+                    <td>
+                        <i class="fa-solid fa-xmark"></i>
+                    </td>
+                    {% endif %}
+                    <td>{{ goodAns }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+<div class="container mx-auto justify-content-center">
+    <a class="btn btn-xl btn-outline-secondary" href="/multiplication-quiz">Do multiplication quiz again</a>
+</div>
+
+<!-- Sound effect player -->
+<audio controls autoplay>
+    <source src="{{ url_for('static', filename='audio/se/drum.mp3') }}" type="audio/mpeg">
+</audio>
+
+{% endblock %}

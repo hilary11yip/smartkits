@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Dictionary-->
+    <section class="page-section bg-white mb-0" id="question-keyword-dictionary">
+        <div class="container">
+            <p class="lead mb-0">You can find related information with the following filters.
+            </p>
+            <p class="lead mb-0">You can also read all dictionary entries to find what you want.
+            </p>
+            <br />
+    
+            <!-- Filters-->
+            <div class="row g-3">
+                <div class="col-sm-6">
+                    <label for="subjectSelect" class="form-label">Subject</label>
+                    <select class="form-select" id="subjectSelect" required="" oninput="filterTable()">
+                        <option value="">Select a subject</option>
+                        {% for row in subjects_data %}
+                        <option>{{ row['subject_name'] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                    <label for="moduleSelect" class="form-label">Module</label>
+                    <select class="form-select" id="moduleSelect" required="" oninput="filterTable()">
+                        <option value="">Select a module</option>
+                        {% for row in modules_data %}
+                        <option>{{ row['module_name'] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+    
+            <br />
+    
+            <div class="row g-3">
+                <div class="col-sm-6">
+                    <label for="keywordInput" class="form-label">Keyword</label>
+                    <input class="form-control" type="text" id="keywordInput" placeholder="Search by question keyword"
+                        oninput="filterTable()">
+                </div>
+                <div class="col-sm-6">
+                    <label for="meaningInput" class="form-label">Meaning</label>
+                    <input class="form-control" type="text" id="meaningInput" placeholder="Search by meaning"
+                        oninput="filterTable()">
+                </div>
+            </div>
+    
+            <br />
+    
+            <div class="row g-3">
+                <div class="col-12">
+                    <button class="btn btn-xl btn-outline-secondary" onclick="reset()">Reset filter</button>
+                </div>
+            </div>
+    
+            <br />
+    
+            <p id="resultCountMessage"></p>
+    
+            <br />
+        </div>
+        <!-- Search table-->
+    
+        <div class="container mx-auto d-flex align-items-center flex-row">
+            <table id="dataTable" class="table-striped-columns table xl">
+                <thead>
+                    <tr>
+                        <th>Subject Name</th>
+                        <th>Module Name</th>
+                        <th>Keyword</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in dictionary_rows_data %}
+                    <tr>
+                        <td>{{ row['subject_name'] }}</td>
+                        <td>{{ row['module_name'] }}</td>
+                        <td>{{ row['keyword'] }}</td>
+                        <td>{{ row['meaning']|safe }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    
+    </section>
+{% endblock %}
+
+{% block script %}
+    {% include "/structures/scripts/script-filter-table.html" %}
+    {% include "/structures/scripts/script-reset.html" %}
+{% endblock %}
