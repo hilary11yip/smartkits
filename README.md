@@ -9,3 +9,5 @@
 <p><em>"I should do something to make my course materials stand out from commercially available workbooks!"</em></p>
 </blockquote>
 <p>This is how I started SmartKits. I have tried on different course material presentation, and summarized what I found most students would love. I decided to actualize my dreams, and share my passion, learning and findings on this web application.</p>
+
+<p><a href="https://docs.google.com/presentation/d/1f0lwB7dXLXVErhf9uEHfkyRkD72bkEvG0D2RhMtb2UM/edit#slide=id.p">Project details</a></p>
